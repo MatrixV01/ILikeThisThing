@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html ng-app="ILikeThis">
 <div class="all">
-<head>
+
+  <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" />
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" media="screen" title="no title" charset="utf-8">
-</head>
+  </head>
 
-<div ng-app="ILikeThis.homepage">
-<div ng-controller="RequestController as request">
- <header id="top" class="header" style="text-align: center">
-    <h1 class="animated fadeInDown">I LIKE THIS</h1>
-    <h3 class="animated fadeInDown">Find your new favorite book, movie, or videogame!</h3>
-    <br>
+  <div ng-app="ILikeThis.homepage">
+    <div ng-controller="RequestController as request">
+      <header id="top" class="header" style="text-align: center">
+        <h1 class="animated fadeInDown">I LIKE THIS</h1>
+        <h3 class="animated fadeInDown">Find your new favorite book, movie, or videogame!</h3>
+        <br>
 
-    <form name="titleAndTypeSubmissionForm" novalidate>
-        <!-- add an ajax request that routes through the AlreadyIncludedCheck on submission -->
-       <!--  <div class="form-group"> -->
-      <input type="text"
-        class="form-control"
-        ng-model="userInput.title"
-        placeholder="Enter a book, movie, or videogame you like here"
-        style="width:320px">
-    <!-- </div> -->
-    <!-- <div class="form-group"> -->
-      <select class="form-control"
-            ng-model="userInput.type"
-            ng-options="o as o for o in types"
-            <option value="">Category</option>
-      </select>
-    <!-- </div> -->
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" ng-click="submitForm()" class="btn btn-success">Submit</button>
-    </div>
-   <!--    <span>{{userInput}}</span> -->
-    </form>
- </header>
+        <form name="titleAndTypeSubmissionForm" novalidate>
+          <!-- add an ajax request that routes through the AlreadyIncludedCheck on submission -->
+          <!--  <div class="form-group"> -->
+          <input type="text" class="form-control" ng-model="userInput.title" placeholder="Enter a book, movie, or videogame you like here" style="width:320px">
+          <!-- </div> -->
+          <!-- <div class="form-group"> -->
+          <select class="form-control" ng-model="userInput.type" ng-options="o as o for o in types" <option value="">Category</option>
+          </select>
+          <!-- </div> -->
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" ng-click="submitForm()" class="btn btn-success">Submit</button>
+          </div>
+          <!--    <span>{{userInput}}</span> -->
+        </form>
+      </header>
 
-<body>
+      <body>
 
-<ul ng-hide="clicked">
-    <h4 ng-show="results[0].workNotFound === true" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Ruh Roh! You don't like that thing. You know why? Because it doesnt EXIST, you stupid idiot. Try searching for something else!</h4>
-    <div class="question" ng-show="results.length > 1" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Sweet. Just so we're sure, which of these works did you mean?</div>
-    <br>
+        <ul ng-hide="clicked">
+          <h4 ng-show="results[0].workNotFound === true" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Ruh Roh! You don't like that thing. You know why? Because it doesnt EXIST, you stupid idiot. Try searching for something else!</h4>
+          <div class="question" ng-show="results.length > 1" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Sweet. Just so we're sure, which of these works did you mean?</div>
+          <br>
 
-    <div class="" style="background-color:maroon; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;" >
-      <li ng-repeat="result in results">
-      <span class="shadowText">
+          <div class="" style="background-color:maroon; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;">
+            <li ng-repeat="result in results">
+              <span class="shadowText">
         <div class="inDbAlready" ng-show="result.database === 'true'">
         <!-- title for books -->
         <div>Title: <a href="#/tags"><button ng-click="alreadyExists(result.title)">{{result.title}}</button></a></div>
@@ -99,24 +93,25 @@
         <!-- date  for games -->
         <div ng-show="result.type ==='Games'">Released: {{result.original_release_date}}</div>
       </span>
-      </li>
+            </li>
 
+          </div>
+
+
+        </ul>
+
+        <script src="app.js"></script>
+        <script src="index.js"></script>
+        <script src="factory.js"></script>
+        <script src="madlibs/madLibs.js"></script>
+        <script src="recommendations/recommendations.js"></script>
+        <script src="individualTitle/individualTitle.js"></script>
+
+        <div ng-view></div>
+
+      </body>
     </div>
-
-
-</ul>
-
- <script src="app.js"></script>
- <script src="index.js"></script>
- <script src="factory.js"></script>
- <script src="madlibs/madLibs.js"></script>
- <script src="recommendations/recommendations.js"></script>
- <script src="individualTitle/individualTitle.js"></script>
-
-<div ng-view></div>
-
-</body>
+  </div>
 </div>
-</div>
-</div>
+
 </html>

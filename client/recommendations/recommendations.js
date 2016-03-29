@@ -5,11 +5,11 @@ angular.module('ILikeThis.recommendations', [])
   $scope.recs = Globals.returnRecs()
 
 
-  $scope.seeMore = function(rec){
-  	console.log('inside see more')
-  	Globals.storeIndiv(rec)
+  $scope.seeMore = function(rec) {
+    console.log('inside see more')
+    Globals.storeIndiv(rec)
 
-  	$location.path('/individual')
+    $location.path('/individual')
   }
 
 

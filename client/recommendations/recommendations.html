@@ -1,36 +1,42 @@
-  <!-- recommendations -->
-  <div ng-controller="RecController" style="background-color:maroon; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;">
+<!-- recommendations -->
+<div ng-controller="RecController" style="background-color:maroon; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;">
   <form name="filter" style="text-align: center">
-  <input placeholder="Filter by tag" type="text" ng-model="searchRecs">
+    <input placeholder="Filter by tag" type="text" ng-model="searchRecs">
   </form>
   <section id="results" class="recommendations" style="text-align: center" ng-repeat="rec in recs | filter:searchRecs | orderBy: '-count'">
     <div ng-show="rec.type === 'Books'">
-    <p class="shadowText">Tag: {{rec.tag}}</p>
-    <br></br>
-    <p class="shadowText">Title: <button ng-click="seeMore(rec)">{{rec.title}}</button></p>
-    <p class="shadowText">Author(s): {{rec.author}}</p>
-    <p class="shadowText">Publisher: {{rec.bookData.publisher}}</p>
-    <img class="cover" ng-src="{{rec.bookImage}}">
-    <p class="shadowText">Pages: {{rec.bookData.pageCount}}</p>
+      <p class="shadowText">Tag: {{rec.tag}}</p>
+      <br></br>
+      <p class="shadowText">Title:
+        <button ng-click="seeMore(rec)">{{rec.title}}</button>
+      </p>
+      <p class="shadowText">Author(s): {{rec.author}}</p>
+      <p class="shadowText">Publisher: {{rec.bookData.publisher}}</p>
+      <img class="cover" ng-src="{{rec.bookImage}}">
+      <p class="shadowText">Pages: {{rec.bookData.pageCount}}</p>
     </div>
 
     <div ng-show="rec.type === 'Movies'">
-    <p class="shadowText">Tag: {{rec.tag}}</p>
-    <br></br>
-    <p class="shadowText">Title: <button ng-click="seeMore(rec)">{{rec.title}}</button></p>
-    <p class="shadowText">Director: {{rec.director}}</p>
-    <p class="shadowText">Genre(s): {{rec.movieData.genre}}</p>
-    <img class="cover" ng-src="{{rec.movieImage}}">
-    <p class="shadowText">Year: {{rec.movieData.Year}}</p>
+      <p class="shadowText">Tag: {{rec.tag}}</p>
+      <br></br>
+      <p class="shadowText">Title:
+        <button ng-click="seeMore(rec)">{{rec.title}}</button>
+      </p>
+      <p class="shadowText">Director: {{rec.director}}</p>
+      <p class="shadowText">Genre(s): {{rec.movieData.genre}}</p>
+      <img class="cover" ng-src="{{rec.movieImage}}">
+      <p class="shadowText">Year: {{rec.movieData.Year}}</p>
     </div>
 
     <div ng-show="rec.type === 'Games'">
-    <p class="shadowText">Tag: {{rec.tag}}</p>
-    <br></br>
-    <p class="shadowText">Title: <button ng-click="seeMore(rec)">{{rec.title}}</button></p>
-    <img class="cover" ng-src="{{rec.gameData.largeImage}}">
+      <p class="shadowText">Tag: {{rec.tag}}</p>
+      <br></br>
+      <p class="shadowText">Title:
+        <button ng-click="seeMore(rec)">{{rec.title}}</button>
+      </p>
+      <img class="cover" ng-src="{{rec.gameData.largeImage}}">
     </div>
   </section>
 
-<h4 ng-show="recs.length === 0"> We don't have any recomendations for that title yet.</h4>
-  </div>
+  <h4 ng-show="recs.length === 0"> We don't have any recomendations for that title yet.</h4>
+</div>
