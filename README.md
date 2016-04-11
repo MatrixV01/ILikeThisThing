@@ -47,22 +47,3 @@ See this [blog post](http://www.dancorman.com/knex-your-sql-best-friend/) for mo
 You will need an API key for GiantBomb (game api).
 
 Google Books and OMBD (IMDB's api) are the other two apis and do not require apiKeys
-
-## Suggestions for Future Features
-- Front end needs a lot of love. (Back end, however, is relatively complete and ready for new features.)
-  - You could render D3 graphs (perhaps a word cloud of tagNames) in the individual results page
-  - Either more work could be done in raw CSS or transfer more fully into Bootstrap or another front end framework
-
-- Have recommended works only appear once, listing the tags that matched.
-  - Current behavior: Works are listed once for every matching tag, resulting in multiple listings of the same work.
-
-- Improve sorting of recommendations:
-  - Quick change (v1): Sort results in order of the number of tags they have in common with the user's submission. minimal work required from what already exists, but huge improvements in accuracy.
-  - Deeper change (v2): A more complex algorithim to display results to the user -- you could sort by how many times a given work is returned from the database (as in how many tags it matched) -- currently the number of times a given work (say Harry Potter) has been given a certain tag (say Genre-Fantasy) is kept track of and stored in the database.
-
-- Allow searching by tag (action, quirky characters, etc.), not just by work and tags provided.
-- Allow searching by work without providing any information about that work - just using information already stored for it in the db.
-- Allow selecting more than one tag per category (also allow a tag to be deselected before submitting)
-- Fix initial flash on load
-- Add more media types -- we would have liked to include boardgames and, more abstractly, music (how interesting would it be to be recommended certain albums because you liked a particular book!)
-- Add user accounts/auth. Favoriting, automated recommendations based on previous search history, etc.
